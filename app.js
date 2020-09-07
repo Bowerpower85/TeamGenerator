@@ -65,23 +65,76 @@ function getManagerOutput() {
     const questions = [
         {
             type: 'input',
-            message: 'What is the Managers name?',
+            message: "What is the Manager's name?",
             name: 'name'
         },
         {
             type: 'input',
-            message: 'What is the Managers id?',
+            message: "What is the Manager's id?",
             name: 'id' 
         },
         {
             type: 'input',
-            message: 'What is the Managers email?',
+            message: "What is the Manager's email?",
             name: 'email'  
         },
         {
             type: 'input',
-            message: 'What is the Managers office number?',
-            name: 'officeNumber'  
+            message: "What is the Manager's office number?",
+            name: 'officeNumb'  
         },
     ]
-}
+
+    inquirer.prompt(questions)
+        .then(answer => {
+            let newManager = new Manager(answer.name, answer.id, answer.email, answer.officeNumber);
+            employees.push(newManager);
+            teamQuestions();
+        });
+};
+
+function getEngineerInput() {
+    const questions = [
+        {
+            type: 'input',
+            message: "What is the Engineer's name?",
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: "What is the Engineer's id?",
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: "What is the Engineer's email?",
+            name: 'email'
+        },
+        {
+            type: 'input',
+            message: "What is the Engineer's github?",
+            name: 'github'
+        },
+        {
+            type: 'confirm',
+            message: "Would you like to add another employee?",
+            name: 'askAgain'
+        },
+    ]
+
+    function ask() {
+        inquirer.prompt(questions)
+            .then(answer => {
+                let newEngineer = new Engineer(answer.name, answer.id, answer.email, answer.github);
+                employees.push(newEngineer);
+                if(answer.askAgain) {
+                    teamQuestions();
+                } else {
+                    let HTML = render(employees);
+                    writeFileAsync(outputPath, HTML);
+                    return
+                }
+            });
+    }
+    ask();
+};
