@@ -33,3 +33,55 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+
+async function generateTeam() {
+    await getManagerInput();
+};
+
+function teamQuestions() {
+    inquirer.prompt([
+        {
+            type: 'list',
+            message: 'Select a team member position.',
+            name: 'type',
+            choices: [
+                'Engineer',
+                'Intern'
+            ]
+        }
+    ])
+
+        .then(async function (answer) {
+            if (answer.type === 'Engineer') {
+                await getEngineerInput();
+            } if (answer.type === 'Intern') {
+                await getInternInput();
+            }
+        });
+
+};
+
+function getManagerOutput() {
+    const questions = [
+        {
+            type: 'input',
+            message: 'What is the Managers name?',
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: 'What is the Managers id?',
+            name: 'id' 
+        },
+        {
+            type: 'input',
+            message: 'What is the Managers email?',
+            name: 'email'  
+        },
+        {
+            type: 'input',
+            message: 'What is the Managers office number?',
+            name: 'officeNumber'  
+        },
+    ]
+}
