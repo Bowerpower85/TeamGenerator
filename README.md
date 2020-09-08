@@ -1,9 +1,7 @@
 
   # Project Title : Team Generator
   ## Project Description:
-  The TeamGenerator is a application that bulids a list of team members based on client input.
-  ## Badges
-  !(https://img.shields.io/github/repo-size/:Bowerpower85/:undefined)
+  The TeamGenerator is a application that builds a list of team members based on client input.
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
