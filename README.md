@@ -42,6 +42,6 @@
   ## Author
   ![GitHub profile pic](https://avatars0.githubusercontent.com/u/56975398?v=4)
   
-  <img src="jestrun.png" height="600px" width="450px">
+  <img src="jestrun.png" height="800px" width="800px">
   
 https://drive.google.com/file/d/1thAfPJ8y3FdsxFlGYZEgi2APy8rzbeiK/view
